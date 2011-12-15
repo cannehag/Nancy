@@ -1,0 +1,15 @@
+﻿@Master['_DiagnosticsMaster']
+
+@Section['Title']Dashboard@EndSection
+
+@Section['Header']
+	<script src="@Path['~/_Nancy/Resources/diagnostics.js']"></script>
+@EndSection
+
+@Section['Body']
+	<h1>Dashboard</h1>
+	<a href="@Path['~/_Nancy/interactive']">Interactive</a>
+@EndSection
+
+
+

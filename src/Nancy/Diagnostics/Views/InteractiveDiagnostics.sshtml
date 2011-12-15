@@ -1,0 +1,71 @@
+﻿@Master['_DiagnosticsMaster']
+
+@Section['Title']Interactive Diagnostics@EndSection
+
+@Section['Header']
+	<script src="@Path['~/_Nancy/Resources/interactive-diagnostics.js']"></script>
+	<script src="@Path['~/_Nancy/Resources/Modules/interactive/providers.js']"></script>
+	<script src="@Path['~/_Nancy/Resources/Modules/interactive/methods.js']"></script>
+	<script src="@Path['~/_Nancy/Resources/Modules/interactive/results.js']"></script>
+
+	<script type="text/javascript" language="javascript">
+		Backbone.LayoutManager.configure({
+/*			fetch: function (path) {
+				var done = this.async();
+
+				$.get("@Path['~/_Nancy/interactive/template/']" + path)
+					.success(function (contents) { done(contents); })
+					.error(function () { done(null); });
+			},
+*/
+			render: function (template, context) {
+				return Handlebars.compile(template)(context);
+			}
+		});
+	</script>
+@EndSection
+
+@Section['Body']
+	<h1>Interactive Diagnostics</h1>
+
+	<div id="providers" style="width: 300px; float: left;">
+	</div>
+
+	<div id="methods" style="width: 300px; float: left;">
+	</div>
+
+	<script id="list" type="text/x-handlebars-template">
+		{{#if collection.length}}
+		  <ul>
+		  </ul>
+		{{else}}
+		  None found.
+		{{/if}}
+	</script>
+
+	<script id="provider" type="text/x-handlebars-template">
+		<a title="{{model.Description}}">{{model.Name}}</a>
+	</script>
+
+	<script id="method" type="text/x-handlebars-template">
+		Name: {{model.MethodName}}<br/>
+		Return Type: {{model.ReturnType}}<br/>
+		Arguments: 
+			{{#if model.Arguments.length}}
+				<ul>
+					{{#each model.Arguments}}
+						<li>
+							{{this.ArgumentName}} : <input type="text" id="{{this.ArgumentName}}"/> ({{this.ArgumentType}})
+						</li>
+					{{/each}}
+				</ul>
+			{{else}}
+				None.
+			{{/if}}
+		<br/>
+		<input type="button" value="Execute"/>
+	</script>
+@EndSection
+
+
+

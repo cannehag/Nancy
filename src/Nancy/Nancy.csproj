@@ -113,7 +113,9 @@
     <Compile Include="Diagnostics\InteractiveDiagnostic.cs" />
     <Compile Include="Diagnostics\InteractiveDiagnosticMethod.cs" />
     <Compile Include="Diagnostics\InteractiveDiagnostics.cs" />
+    <Compile Include="Diagnostics\Modules\InteractiveModule.cs" />
     <Compile Include="Diagnostics\Modules\MainModule.cs" />
+    <Compile Include="Diagnostics\TestingDiagnosticProvider.cs" />
     <Compile Include="IResponseFormatterFactory.cs" />
     <Compile Include="Jsonp.cs" />
     <Compile Include="JsonpStartup.cs" />
@@ -300,6 +302,7 @@
     <Compile Include="ViewEngines\ViewLocationResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Views\Dashboard.sshtml" />
     <EmbeddedResource Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -312,16 +315,38 @@
     <EmbeddedResource Include="Diagnostics\Resources\face.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Diagnostics\Resources\Dashboard.sshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Diagnostics\Resources\diagnostics.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Diagnostics\Resources\backbone-min.js" />
     <EmbeddedResource Include="Diagnostics\Resources\jquery-1.7.1.min.js" />
-    <EmbeddedResource Include="Diagnostics\Resources\mustache.js" />
     <EmbeddedResource Include="Diagnostics\Resources\underscore-min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Resources\backbone.layoutmanager.js" />
+    <EmbeddedResource Include="Diagnostics\Resources\handlebars.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Views\_DiagnosticsMaster.sshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Resources\nancy-common.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Resources\interactive-diagnostics.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Resources\jsonreport.js" />
+    <EmbeddedResource Include="Diagnostics\Resources\Modules\interactive\providers.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Views\InteractiveDiagnostics.sshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Resources\Modules\interactive\methods.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagnostics\Resources\Modules\interactive\results.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
